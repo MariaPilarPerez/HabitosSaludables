@@ -27,7 +27,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.campusdigitalfp.habitossaludables.ui.theme.HabitosSaludablesTheme
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.clickable
@@ -35,6 +34,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import com.campusdigitalfp.habitossaludables.ui.theme.HabitosSaludablesTheme
 
 
 class MainActivity : ComponentActivity() {
@@ -51,6 +51,7 @@ class MainActivity : ComponentActivity() {
 data class Habito (val titulo: String, val descripcion: String)
 
 //Esta es la función principal, en la que organizamos todos los elementos.
+
 @Composable
 fun VistaHabito(Habito: Habito) {
     Row(modifier = Modifier.padding(all = 8.dp)) {
@@ -98,12 +99,15 @@ fun VistaListaHabitos(habitos: List<Habito>){
         }
     }
 }
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES,
-showBackground = true, name="Dark Mode"
-    )
-@Preview(showBackground = true)
+@Preview(
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+    showBackground = true,
+    name="Dark Mode")
+
+
+@Preview(showBackground = true, name="Ligth Mode")
 @Composable
-fun PreviewVistaHabito() {
+fun PreviewListaHabitos() {
     HabitosSaludablesTheme {
       VistaListaHabitos(SampleData.habitSample)
     }
