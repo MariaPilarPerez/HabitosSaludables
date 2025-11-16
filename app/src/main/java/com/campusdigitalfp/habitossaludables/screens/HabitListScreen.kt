@@ -24,40 +24,36 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.unit.Dp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.campusdigitalfp.habitossaludables.R
-import com.campusdigitalfp.habitossaludables.VistaListaHabitos
 import com.campusdigitalfp.habitossaludables.sampledata.SampleData.habitSample
 import com.campusdigitalfp.habitossaludables.ui.theme.HabitosSaludablesTheme
 
-/*
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            HabitosSaludablesTheme {
-                VistaHabito(Habito("Comer Saludable","Objetivo de comer saludable todos los dias de la semana"))
-            }
-        }
-    }
-} */
+data class Habito (val titulo: String, val descripcion: String)
 @Composable
-fun HabitlistScreen(navController: NavHostController){
-    HabitosSaludablesTheme() {
-        Scaffold() {paddingValues ->
+fun HabitListScreen(navController: NavHostController){
+    HabitosSaludablesTheme {
+        Scaffold {paddingValues ->
             //modificación
-            VistaListaHabitos(habitSample)
+            VistaListaHabitos(
+                habitSample,
+                paddingValues=paddingValues, navController = navController)
         }
     }
 }
-data class Habito (val titulo: String, val descripcion: String)
+
+
 
 //Esta es la función principal, en la que organizamos todos los elementos.
 
@@ -65,7 +61,7 @@ data class Habito (val titulo: String, val descripcion: String)
 fun VistaHabito(Habito: Habito) {
     Row(modifier = Modifier.padding(all = 8.dp)) {
         Image(
-            painter = painterResource(id = R.drawable.estilo_de_vida),
+            painter = painterResource(id=R.drawable.estilo_de_vida ),
             contentDescription = "Icono estilo de vida",
             modifier = Modifier
                 .size(60.dp)
@@ -101,15 +97,22 @@ fun VistaHabito(Habito: Habito) {
 }
 
 @Composable
-fun VistaListaHabitos(habitos: List<Habito>, paddingValues: PaddingValues, navController: NavHostController){
-    LazyColumn (modifier = Modifier.padding(paddingValues)){
-        items(habitos){
-                habito->VistaHabito(habito)
-
+fun VistaListaHabitos(
+    habitos: List<Habito>,
+    paddingValues: PaddingValues, navController: NavHostController
+)   {
+    Column(
+        modifier = Modifier.padding(paddingValues).fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.SpaceBetween,
+    ) {
+        LazyColumn(modifier = Modifier.padding(paddingValues)) {
+            items(habitos) { habito ->
+                VistaHabito(habito)
+            }
         }
-
+        IrAcercaDe(navController=navController)
     }
-    IrAcercaDe( navController = navController)
 }
 @Composable
 fun IrAcercaDe(navController: NavHostController){
@@ -130,7 +133,9 @@ fun IrAcercaDe(navController: NavHostController){
 @Composable
 fun PreviewListaHabitos() {
     HabitosSaludablesTheme {
-        VistaListaHabitos(habitos = habitSample,)
+        VistaListaHabitos(habitSample,
+            paddingValues = PaddingValues(),
+            navController = rememberNavController()
+        )
     }
-
 }

@@ -5,12 +5,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.campusdigitalfp.habitossaludables.screens.AboutScreen
-import com.campusdigitalfp.habitossaludables.screens.HabitlistScreen
+import com.campusdigitalfp.habitossaludables.screens.HabitListScreen
+
 
 @Composable
-fun Navigation(){
+fun Navigation() {
     val navController = rememberNavController()
-    NavHost(navController=navController, startDestination="list")
-    {composable("list"){ HabitlistScreen(navController) }
-    composable("about"){ AboutScreen((navController)) }}
+    NavHost(navController = navController, startDestination = "list") {
+        composable("list") { HabitListScreen(navController) }
+        composable("about") { AboutScreen(navController) }
+    }
 }

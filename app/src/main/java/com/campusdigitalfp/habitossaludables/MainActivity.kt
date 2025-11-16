@@ -31,6 +31,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.navigation.NavHostController
 import com.campusdigitalfp.habitossaludables.navigation.Navigation
 import com.campusdigitalfp.habitossaludables.sampledata.SampleData.habitSample
 import com.campusdigitalfp.habitossaludables.ui.theme.HabitosSaludablesTheme
@@ -43,80 +44,17 @@ class MainActivity : ComponentActivity() {
         setContent {
             HabitosSaludablesTheme {
                 Navigation()
-                   /* Habito(
-                        "Comer Saludable",
-                        "Objetivo de comer saludable todos los dias de la semana"
-                    )*/
+
 
             }
         }
     }
 }
-
-data class Habito(val titulo: String, val descripcion: String)
-
-//Esta es la función principal, en la que organizamos todos los elementos.
-
+@Preview
 @Composable
-fun VistaHabito(Habito: Habito) {
-    Row(modifier = Modifier.padding(all = 8.dp)) {
-        Image(
-            painter = painterResource(id = R.drawable.estilo_de_vida),
-            contentDescription = "Icono estilo de vida",
-            modifier = Modifier
-                .size(60.dp)
-                .clip(CircleShape)
-                .border(width = 1.5.dp, MaterialTheme.colorScheme.primary, CircleShape)
-        )
-        Spacer(modifier = Modifier.width(8.dp))
-// Mantenemos un registro de si el mensaje está expandido o no
-        var isExpanded by remember { mutableStateOf(false) }
-        //Cambiamos el estado de la variable isExpanded cuando hacemos clic en esta columna
-        Column(modifier = Modifier.clickable { isExpanded = !isExpanded }) {
-            Text(
-                text = Habito.titulo,
-                color = MaterialTheme.colorScheme.primary,
-                style = MaterialTheme.typography.titleSmall
-            )
-            Spacer(modifier = Modifier.height(4.dp))
-            Surface(
-                shape = MaterialTheme.shapes.medium
-            ) {
-                Text(
-                    text = Habito.descripcion,
-                    modifier = Modifier.padding(4.dp),
-                    // Si el mensaje está expandido mostramos
-                    // todo el contenido, sino solo la primera linea
-                    maxLines = if (isExpanded) Int.MAX_VALUE else 1,
-                    style = MaterialTheme.typography.bodyMedium
-                )
-            }
-        }
+fun PreviaHabitos()
+{
+    HabitosSaludablesTheme() {
+        Navigation()
     }
-
-}
-
-@Composable
-fun VistaListaHabitos(habitos: List<Habito>) {
-    LazyColumn {
-        items(habitos) { habito ->
-            VistaHabito(habito)
-        }
-    }
-}
-
-@Preview(
-    uiMode = Configuration.UI_MODE_NIGHT_YES,
-    showBackground = true,
-    name = "Dark Mode"
-)
-
-
-@Preview(showBackground = true, name = "Ligth Mode")
-@Composable
-fun PreviewListaHabitos() {
-    HabitosSaludablesTheme {
-        VistaListaHabitos(habitSample,)
-    }
-
 }
