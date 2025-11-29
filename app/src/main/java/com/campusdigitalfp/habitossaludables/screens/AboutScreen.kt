@@ -19,12 +19,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
+import androidx.navigation.NavController
 import com.campusdigitalfp.habitossaludables.R
 
-@Preview
+
+
 @Composable
-fun AboutScreen(navController: NavHostController) {
+fun AboutScreen(navController: NavController) {
     Scaffold { paddingValues ->
         Column(
             modifier = Modifier
@@ -52,8 +53,8 @@ fun AboutScreen(navController: NavHostController) {
             )
             Spacer(modifier = Modifier.height(16.dp))
             Text(
-                text = "Habitos Saludables es una aplicación que te ayudará a llevar un " +
-                        "estilo de vida saludable a través del seguimiento de hábitos diarios " +
+                text = "Habitos Saludables es una aplicación que te ayudará a llevar un" +
+                        "estilo de vida saludable a través del seguimiento de hábitos diarios" +
                         "como la hidratación, la actividad física y el descanso.",
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(horizontal = 16.dp),
@@ -66,7 +67,7 @@ fun AboutScreen(navController: NavHostController) {
             )
             Spacer(modifier = Modifier.height(16.dp))
             Button(
-                onClick = { navController.popBackStack()
+                onClick = { /* Acción para enviar comentarios */
                 },
                 modifier = Modifier.padding(
                     vertical
@@ -78,7 +79,6 @@ fun AboutScreen(navController: NavHostController) {
         }
     }
 }
-
 
 
 
