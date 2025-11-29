@@ -23,7 +23,7 @@ import androidx.navigation.NavController
 import com.campusdigitalfp.habitossaludables.R
 
 
-
+@Preview
 @Composable
 fun AboutScreen(navController: NavController) {
     Scaffold { paddingValues ->
