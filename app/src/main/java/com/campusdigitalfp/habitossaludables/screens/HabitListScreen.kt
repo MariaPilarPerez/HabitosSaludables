@@ -40,19 +40,8 @@ import com.campusdigitalfp.habitossaludables.R
 import com.campusdigitalfp.habitossaludables.sampledata.SampleData.habitSample
 import com.campusdigitalfp.habitossaludables.ui.theme.HabitosSaludablesTheme
 
-data class Habito (val titulo: String, val descripcion: String)
-/*
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            HabitosSaludablesTheme {
-                VistaHabito(Habito("Comer Saludable","Objetivo de comer saludable todos los dias de la semana"))
-            }
-        }
-    }
-} */
+data class Habito (val id: Int, val titulo: String, val descripcion: String)
+
 
 @Composable
 fun HabitListScreen(navController: NavHostController){

@@ -66,12 +66,14 @@ fun AboutScreen(navController: NavController) {
                 style = MaterialTheme.typography.bodyMedium
             )
             Spacer(modifier = Modifier.height(16.dp))
+val savedStateHandle = navController.currentBackStackEntry?.savedStateHandle
             Button(
-                onClick = { /* Acción para enviar comentarios */
+                onClick = { navController.previousBackStackEntry?.savedStateHandle?.set
+                    ("key_result","Valor mandado de vuelta")
+                    navController.popBackStack()
                 },
                 modifier = Modifier.padding(
-                    vertical
-                    = 8.dp
+                    vertical = 8.dp
                 )
             ) {
                 Text(text = "Volver")
