@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "com.campusdigitalfp.habitossaludables"
-        minSdk = 21
+        minSdk = 23
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
@@ -62,4 +62,9 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.ui.tooling)
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.9.4")
+    implementation("androidx.compose.runtime:runtime:1.10.0")
+    implementation("androidx.compose.runtime:runtime-livedata:1.10.0")
+    implementation("androidx.compose.runtime:runtime-rxjava2:1.10.0")
+
 }
