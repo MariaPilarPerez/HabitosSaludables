@@ -8,6 +8,9 @@
       <SelectionState runConfigName="Ligth Mode - PreviewListaHabitos">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+      <SelectionState runConfigName="Light Mode - PreviewListaHabitos">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
     </selectionStates>
   </component>
 </project>
