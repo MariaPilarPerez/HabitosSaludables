@@ -1,5 +1,6 @@
 package com.campusdigitalfp.habitossaludables
 
+import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -33,6 +34,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.navigation.NavHostController
 import com.campusdigitalfp.habitossaludables.navigation.Navigation
+import com.campusdigitalfp.habitossaludables.sampledata.SampleData
 import com.campusdigitalfp.habitossaludables.sampledata.SampleData.habitSample
 import com.campusdigitalfp.habitossaludables.ui.theme.HabitosSaludablesTheme
 
@@ -40,6 +42,7 @@ import com.campusdigitalfp.habitossaludables.ui.theme.HabitosSaludablesTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        SampleData.loadData(this)
         enableEdgeToEdge()
         setContent {
             HabitosSaludablesTheme {

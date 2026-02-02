@@ -7,9 +7,9 @@ import com.campusdigitalfp.habitossaludables.screens.Habito
 /** * Datos de ejemplo para Hábitos Saludables */
 object SampleData { val habitSample = mutableStateListOf<Habito>()
     fun loadData(context: Context)
-    { val h1 = Habito( id = habitSample.size, titulo = context.getString(R.string.beber_agua),
-        descripcion =
-            context.getString(R.string.asegurate) )
+    { val h1 = Habito( id = habitSample.size,
+        titulo = context.getString(R.string.beber_agua),
+        descripcion =context.getString(R.string.asegurate) )
             habitSample.add(h1)
       val h2 = Habito( id = habitSample.size, titulo = context.getString(R.string.ejercicio_diario),
           descripcion = context.getString(R.string.realiza_al_menos_30_minutos) )

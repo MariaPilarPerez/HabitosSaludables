@@ -43,11 +43,21 @@ import com.campusdigitalfp.habitossaludables.screens.Habito
             }
         } ,
 // Menú desplegable en la esquina superior derecha
-     actions = { if (!atras) { IconButton(onClick = { expanded = true })
-     { Icon( imageVector = Icons.Filled.Menu, contentDescription = stringResource (R.string.men_de_opciones) ) }
-         DropdownMenu( expanded = expanded, onDismissRequest = { expanded = false } )
-         { DropdownMenuItem( onClick = { navController.navigate ("new") },
-             leadingIcon = { Icon( imageVector = Icons.Filled. Add,
+     actions = {
+         if (!atras) {
+             IconButton(onClick = { expanded = true })
+            {
+                 Icon(
+                     imageVector = Icons.Filled.Menu,
+                     contentDescription = stringResource (R.string.men_de_opciones) ) }
+         DropdownMenu(
+             expanded = expanded,
+             onDismissRequest = { expanded = false } )
+         {
+             DropdownMenuItem(
+                 onClick = { navController.navigate ("new") },
+             leadingIcon = {
+                 Icon( imageVector = Icons.Filled. Add,
                  contentDescription = stringResource(R.string.a_adir_nuevo_h_bito),
                  tint = MaterialTheme.colorScheme.primary
              )

@@ -76,7 +76,10 @@ fun VistaHabito(habito: Habito, onClick: () -> Unit, onLongClick: () -> Unit, is
     Row( modifier = Modifier .padding(all = 8.dp)
          .combinedClickable(onClick = onClick, onLongClick = onLongClick) )
      {
-         Image(painter = painterResource(if (isSelected) R.drawable.selected else R.drawable.estilo_de_vida),
+         Image(painter = painterResource(if (isSelected)
+             R.drawable.selected
+             else
+                 R.drawable.estilo_de_vida),
              contentDescription = stringResource(R.string.icono_estilo_de_vida),
              modifier = Modifier .size(40.dp) .clip(CircleShape)
                  .border(1.5.dp, MaterialTheme.colorScheme.primary, CircleShape) )
@@ -109,16 +112,23 @@ fun VistaListaHabitos(
     Column( modifier = Modifier .padding(paddingValues) .fillMaxSize(),
         verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally )
-    { LazyColumn( modifier = Modifier .weight(1f)
+    {
+        LazyColumn( modifier = Modifier .weight(1f)
          // Ocupa el espacio disponible, excepto lo que necesita IrAcercaDe
         .padding(16.dp) )
-        { items(habitos) { habito -> VistaHabito(habito, onClick = { if (isActionMode.value) {  // Seleccionar/deseleccionar película
-         if (selectedHabits.contains(habito))
-         { selectedHabits.remove(habito)
-             if (selectedHabits.isEmpty())
-             { isActionMode.value = false // Desactiva action mode
-             } } else { selectedHabits.add(habito) } }
-             else { navController.navigate("details/${habito.id}") } },
+        { items(habitos) { habito ->
+        VistaHabito(habito,
+            onClick = {
+            if (isActionMode.value) {  // Seleccionar/deseleccionar habito
+                if (selectedHabits.contains(habito))
+                    { selectedHabits.remove(habito)
+                     if (selectedHabits.isEmpty())
+                        { isActionMode.value = false // Desactiva action mode
+                         }
+                    } else { selectedHabits.add(habito) } }
+            else {
+                 navController.navigate("details/${habito.id}") } },
+
             onLongClick = {
                 isActionMode.value = true
                 selectedHabits.add(habito) // Agregar a la selección

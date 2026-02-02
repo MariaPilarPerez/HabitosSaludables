@@ -70,8 +70,9 @@ fun NewHabitScreen(navController: NavHostController)
                     Button(
                         onClick = {
                             navController.previousBackStackEntry?.savedStateHandle?.set(
-                                "key_result",context.getString(R.string.operaci_n_cancelada))
-                            navController.popBackStack ()
+                                "key_result", context.getString(R.string.operaci_n_cancelada)
+                            )
+                            navController.popBackStack()
                         },
                         modifier = Modifier.weight(1f),
                         colors = ButtonDefaults.buttonColors(containerColor = cancelButtonBackground),
@@ -80,29 +81,29 @@ fun NewHabitScreen(navController: NavHostController)
                     {
                         Text(text = stringResource(R.string.cancelar), color = cancelButtonText)
                     }
-                }
-                Spacer(modifier = Modifier.width(8.dp))
-                Button(
-                    onClick = {
-                        val nuevoHabito = Habito(
-                            id = habitSample.size,
-                            titulo = titulo, descripcion = descripcion
-                        )
-                        habitSample.add(nuevoHabito)
-                        navController.previousBackStackEntry?.savedStateHandle?.set(
-                            "key_result",
-                            context.getString(R.string.h_bito_creado_con_xito)
-                        )
-                        navController.popBackStack()
-                    },
-                    modifier = Modifier.weight(1f),
-                    colors = ButtonDefaults.buttonColors(containerColor = saveButtonBackground),
-                    border = BorderStroke(1.dp, saveButtonText)
-                )
-                {
-                    Text(text = stringResource(R.string.guardar), color = saveButtonText)
-                }
 
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Button(
+                        onClick = {
+                            val nuevoHabito = Habito(
+                                id = habitSample.size,
+                                titulo = titulo, descripcion = descripcion
+                            )
+                            habitSample.add(nuevoHabito)
+                            navController.previousBackStackEntry?.savedStateHandle?.set(
+                                "key_result",
+                                context.getString(R.string.h_bito_creado_con_xito)
+                            )
+                            navController.popBackStack()
+                        },
+                        modifier = Modifier.weight(1f),
+                        colors = ButtonDefaults.buttonColors(containerColor = saveButtonBackground),
+                        border = BorderStroke(1.dp, saveButtonText)
+                    )
+                    {
+                        Text(text = stringResource(R.string.guardar), color = saveButtonText)
+                    }
+                }
             }
         }
     }
