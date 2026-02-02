@@ -49,6 +49,7 @@ import com.campusdigitalfp.habitossaludables.ui.theme.HabitosSaludablesTheme
 
 
 
+
 @Composable
 fun HabitListScreen(navController: NavHostController)
 {
@@ -56,6 +57,7 @@ fun HabitListScreen(navController: NavHostController)
     val context = LocalContext.current
     val isActionMode = remember { mutableStateOf(false) }
     val selectedHabits = remember { mutableStateListOf<Habito>() }
+    var cuenta by remember {mutableStateOf(0)}
     if (savedStateHandle != null) { // Observa el valor de "key_result" del savedStateHandle como un State.
     val result by savedStateHandle.getLiveData<String> ("key_result").observeAsState()
         result?.let {// LaunchedEffect se activa cuando `it` cambia, mostrando el Toast una sola vez.
@@ -72,7 +74,7 @@ data class Habito(val id: Int, val titulo: String, val descripcion: String)
 @Composable
 fun VistaHabito(habito: Habito, onClick: () -> Unit, onLongClick: () -> Unit, isSelected: Boolean)
    {
-    val onLongClick = null
+
     Row( modifier = Modifier .padding(all = 8.dp)
          .combinedClickable(onClick = onClick, onLongClick = onLongClick) )
      {
@@ -109,15 +111,18 @@ fun VistaListaHabitos(
     isActionMode: MutableState<Boolean>,
     selectedHabits: MutableList<Habito>)
     {
+        var cuenta by remember {mutableStateOf(0)}
     Column( modifier = Modifier .padding(paddingValues) .fillMaxSize(),
         verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally )
     {
+
         LazyColumn( modifier = Modifier .weight(1f)
          // Ocupa el espacio disponible, excepto lo que necesita IrAcercaDe
         .padding(16.dp) )
         { items(habitos) { habito ->
-        VistaHabito(habito,
+
+            VistaHabito(habito,
             onClick = {
             if (isActionMode.value) {  // Seleccionar/deseleccionar habito
                 if (selectedHabits.contains(habito))
@@ -129,12 +134,14 @@ fun VistaListaHabitos(
             else {
                  navController.navigate("details/${habito.id}") } },
 
-            onLongClick = {
+            onLongClick = {cuenta++
                 isActionMode.value = true
                 selectedHabits.add(habito) // Agregar a la selección
             },
             isSelected = selectedHabits.contains(habito) )
         }
     }
+        Text(text="cumplidos {$cuenta} habitos")
     }
+
 }
