@@ -126,11 +126,13 @@ fun VistaListaHabitos(
             onClick = {
             if (isActionMode.value) {  // Seleccionar/deseleccionar habito
                 if (selectedHabits.contains(habito))
-                    { selectedHabits.remove(habito)
+                    {cuenta--
+                    selectedHabits.remove(habito)
                      if (selectedHabits.isEmpty())
                         { isActionMode.value = false // Desactiva action mode
                          }
-                    } else { selectedHabits.add(habito) } }
+                    } else {cuenta++
+                        selectedHabits.add(habito) } }
             else {
                  navController.navigate("details/${habito.id}") } },
 
@@ -141,7 +143,7 @@ fun VistaListaHabitos(
             isSelected = selectedHabits.contains(habito) )
         }
     }
-        Text(text="cumplidos {$cuenta} habitos")
+        Text(text="Seleccionados $cuenta habitos")
     }
 
 }
