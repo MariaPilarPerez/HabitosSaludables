@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "930649459152",
+    "project_id": "ppghabitossaludables",
+    "storage_bucket": "ppghabitossaludables.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:930649459152:android:08dc0fef75c7f8a1dc51d5",
+        "android_client_info": {
+          "package_name": "com.campusdigitalfp.habitossaludables"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABMi5_QBgVsfasTKDxT_E9n9IUt82Ja_w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
