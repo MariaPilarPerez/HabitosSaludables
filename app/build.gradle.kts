@@ -55,6 +55,7 @@ dependencies {
     implementation(libs.androidx.compose.foundation.layout)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.firebase.firestore.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -69,5 +70,7 @@ dependencies {
     implementation("androidx.compose.runtime:runtime-rxjava2:1.10.0")
     implementation(platform("com.google.firebase:firebase-bom:34.9.0"))
     implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-firestorektx:24.6.0")
+    implementation("com.google.firebase:firebase-firestore:24.10.0")
 
 }

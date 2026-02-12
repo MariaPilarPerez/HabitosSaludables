@@ -37,22 +37,26 @@ import com.campusdigitalfp.habitossaludables.navigation.Navigation
 import com.campusdigitalfp.habitossaludables.sampledata.SampleData
 import com.campusdigitalfp.habitossaludables.sampledata.SampleData.habitSample
 import com.campusdigitalfp.habitossaludables.ui.theme.HabitosSaludablesTheme
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.Firebase
 
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        SampleData.loadData(this)
+        val db = FirebaseFirestore.getInstance() // Inicializa Firestore
+        //SampleData.loadData(this)
         enableEdgeToEdge()
         setContent {
-            HabitosSaludablesTheme {
-                Navigation()
+            //HabitTrackerApp()
+            //HabitosSaludablesTheme {
+            //    Navigation()
 
 
             }
         }
     }
-}
+
 @Preview
 @Composable
 fun PreviaHabitos()
