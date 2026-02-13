@@ -36,10 +36,12 @@ class HabitRepository {
 
         return try {
             val snapshot = habitsCollection.get().await()
-// Obtiene los documentos de Firestore
+            /** Obtiene los documentos de Firestore
+             *  */
             snapshot.documents.mapNotNull { it.toObject(Habito::class.java)?.copy(id = it.id) }
         } catch (e: Exception) {
-            emptyList() // En caso de error, devuelve una lista vacía para evitar fallos en la UI
+            emptyList()
+          /** En caso de error, devuelve una lista vacía para evitar fallos en la UI  **/
         }
     }
     /**
@@ -71,17 +73,16 @@ class HabitRepository {
                 Log.e("HS_error", "Error al obtener hábitos: ${exception.message}")
                 return@addSnapshotListener
             }
-            // Convierte los documentos de Firestore a objetos `Habito`
+            /** Convierte los documentos de Firestore a objetos `Habito`  **/
             val habits = snapshot?.documents?.mapNotNull {
                 it.toObject(Habito::class.java)?.copy(id = it.id) } ?: emptyList()
-            onUpdate(habits) // Llama al callback con la lista actualizada de hábitos
+            onUpdate(habits)
+            /** Llama al callback con la lista actualizada de hábitos **/
         }
     }
     /**
-     * Agrega múltiples hábitos en una sola operación usand
-    o `WriteBatch`.
-     * Esto optimiza el rendimiento al reducir el número de
-    peticiones individuales a Firestore.
+     * Agrega múltiples hábitos en una sola operación usando `WriteBatch`.
+     * Esto optimiza el rendimiento al reducir el número de peticiones individuales a Firestore.
      */
     suspend fun addMultipleHabits(habits: List<Habito>) {
         val batch = db.batch() // Crea un batch para realizar múltiples operaciones en una sola transacción
