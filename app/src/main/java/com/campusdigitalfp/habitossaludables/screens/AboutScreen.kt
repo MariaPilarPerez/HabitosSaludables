@@ -21,7 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.campusdigitalfp.habitossaludables.R
-import com.campusdigitalfp.habitossaludables.BarraSuperiorComun
+import com.campusdigitalfp.habitossaludables.common.BarraSuperiorComun
 @Composable fun AboutScreen(navController: NavHostController)
 { Scaffold (topBar = { BarraSuperiorComun(navController) })
 { paddingValues ->
