@@ -12,7 +12,20 @@
           "package_name": "com.campusdigitalfp.habitossaludables"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "930649459152-uvd06droq47qcl2qcpijd0m1gatc3h0e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.campusdigitalfp.habitossaludables",
+            "certificate_hash": "6729034f8596e42f5d9543bf73a3289786c263a1"
+          }
+        },
+        {
+          "client_id": "930649459152-63uobr53qli0gok6jlkn921lvd6atav9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyABMi5_QBgVsfasTKDxT_E9n9IUt82Ja_w"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "930649459152-63uobr53qli0gok6jlkn921lvd6atav9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
