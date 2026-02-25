@@ -12,7 +12,7 @@ foundationLayout = "1.9.4"
 navigationCompose = "2.9.6"
 uiToolingPreview = "1.9.4"
 uiTooling = "1.9.4"
-firebaseFirestoreKtx = "26.1.0"
+firebaseFirestoreKtx = "24.1.0"
 firebaseAuth = "24.0.1"
 
 [libraries]

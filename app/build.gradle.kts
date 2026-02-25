@@ -43,7 +43,7 @@ android {
 }
 
 dependencies {
-    implementation("com.google.firebase:firebase-auth-ktx:23.2.0")
+   // implementation("com.google.firebase:firebase-auth-ktx:23.2.0")
     implementation("com.google.android.gms:play-services-auth:21.3.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -70,9 +70,10 @@ dependencies {
     implementation("androidx.compose.runtime:runtime:1.10.0")
     implementation("androidx.compose.runtime:runtime-livedata:1.10.0")
     implementation("androidx.compose.runtime:runtime-rxjava2:1.10.0")
-    implementation(platform("com.google.firebase:firebase-bom:34.9.0"))
-    implementation("com.google.firebase:firebase-analytics")
-    implementation("com.google.firebase:firebase-firestorektx:24.6.0")
-    implementation("com.google.firebase:firebase-firestore:24.10.0")
+    //implementation("com.google.firebase:firebase-auth-ktx")
+    //implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.firebase:firebase-firestore-ktx")
+    implementation("com.google.firebase:firebase-firestore-ktx")
+
 
 }
