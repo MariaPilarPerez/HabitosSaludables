@@ -67,13 +67,14 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.ui.tooling)
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.9.4")
-    implementation("androidx.compose.runtime:runtime:1.10.0")
-    implementation("androidx.compose.runtime:runtime-livedata:1.10.0")
-    implementation("androidx.compose.runtime:runtime-rxjava2:1.10.0")
+    //implementation("androidx.compose.runtime:runtime:1.10.0")
+    //implementation("androidx.compose.runtime:runtime-livedata:1.10.0")
+    //implementation("androidx.compose.runtime:runtime-rxjava2:1.10.0")
     //implementation("com.google.firebase:firebase-auth-ktx")
     //implementation("com.google.firebase:firebase-analytics-ktx")
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.firebase:firebase-firestore-ktx")
-
+    implementation("androidx.compose.runtime:runtime")
+    implementation("androidx.compose.runtime:runtime-livedata")
 
 }
